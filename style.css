@@ -218,7 +218,6 @@ section .title::after{
     width: 400px;
     object-fit:contain;
     border-radius: 50%;
-    background-color: black;
 }
 .about .about-content .right{
     width: 55%;
