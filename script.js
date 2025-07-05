@@ -54,6 +54,52 @@ $(document).ready(function () {
     backSpeed: 60,
     loop: true,
   });
+
+  // Triangle toggle logic
+const switches = {
+  fast: document.querySelector('input[value="fast"]'),
+  cheap: document.querySelector('input[value="cheap"]'),
+  good: document.querySelector('input[value="good"]')
+};
+
+Object.values(switches).forEach(sw => {
+  sw.addEventListener('change', () => {
+    const fast = switches.fast.checked;
+    const cheap = switches.cheap.checked;
+    const good = switches.good.checked;
+
+    // When all 3 are ON, apply triangle logic
+    if (fast && cheap && good) {
+      // Determine which one was just turned ON
+      const changed = sw.value;
+
+      // Turn OFF the one that violates the triangle logic
+      if (changed === 'fast') {
+        switches.good.checked = false;
+      } else if (changed === 'cheap') {
+        switches.good.checked = false;
+      } else if (changed === 'good') {
+        // If user turned on Good, and Fast + Cheap were already on
+        switches.fast.checked = false;
+      }
+    }
+
+    // Keep triangle rules active when only 2 are ON
+    // Clean-up invalid third toggle after rapid switching
+    const active = Object.entries(switches).filter(([key, el]) => el.checked).map(([key]) => key);
+
+    if (active.length > 2) {
+      if (active.includes('fast') && active.includes('cheap')) {
+        switches.good.checked = false;
+      } else if (active.includes('cheap') && active.includes('good')) {
+        switches.fast.checked = false;
+      } else if (active.includes('fast') && active.includes('good')) {
+        switches.cheap.checked = false;
+      }
+    }
+  });
+});
+  
   // owl carousel script
   $(".carousel").owlCarousel({
     margin: 20,
