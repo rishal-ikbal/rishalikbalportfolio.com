@@ -469,7 +469,6 @@ section .title::after{
 }
 
 
-
 /* connect section styling */
 .teams .title::after{
     content: "with me";
