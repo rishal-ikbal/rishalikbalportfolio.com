@@ -55,7 +55,7 @@ $(document).ready(function () {
     loop: true,
   });
 
-  // Triangle toggle logic
+// Triangle toggle logic
 const switches = {
   fast: document.querySelector('input[value="fast"]'),
   cheap: document.querySelector('input[value="cheap"]'),
@@ -99,7 +99,7 @@ Object.values(switches).forEach(sw => {
     }
   });
 });
-  
+
   // owl carousel script
   $(".carousel").owlCarousel({
     margin: 20,
