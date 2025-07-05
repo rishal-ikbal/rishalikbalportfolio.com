@@ -218,6 +218,7 @@ section .title::after{
     width: 400px;
     object-fit:contain;
     border-radius: 50%;
+    background-color: black;
 }
 .about .about-content .right{
     width: 55%;
@@ -367,6 +368,108 @@ section .title::after{
 .skills-content .right .mysql::before{
     width: 70%;
 }
+
+/* triangle toggle section */
+.triangle {
+  padding: 100px 0;
+  background: #111;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.triangle .title::after {
+  content: "choose wisely";
+  background: #111;
+  color: crimson;
+}
+
+.switch-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.switch-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.switch-label {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* The switch outer container */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+/* Hide native checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #333;
+  border-radius: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* The slider knob */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  top: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Active state */
+.switch input:checked + .slider {
+  background-color: crimson;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(30px);
+}
+
+/* Hover effect */
+.switch:hover .slider {
+  background-color: #444;
+}
+
+.triangle-note {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+  font-style: italic;
+}
+
+
+
 /* connect section styling */
 .teams .title::after{
     content: "with me";
